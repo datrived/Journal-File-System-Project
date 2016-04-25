@@ -1,0 +1,10 @@
+CC=gcc
+CFLAGS= -I.
+DEPS=header2.h
+OBJ= main2.o write2.o read2.o transfer2.o allocate2.o abort2.o commit2.o mark2.o
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS) -lpthread
+
+devanshi: $(OBJ)
+	gcc -g -o $@ $^ $(CFLAGS) -lpthread
